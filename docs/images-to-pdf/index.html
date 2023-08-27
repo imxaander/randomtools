@@ -4,11 +4,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Images to PDF">
         <link rel="stylesheet" href="../styles/index-style.css">
+        
         <title>Images to PDF</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+        <script src="scripts/script.js"></script>
     </head>
     <body>
         <iframe src="../header.html" onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
         
+        <h3>Add Files..</h3>
+        <input id="files" type="file" multiple>
 
         <iframe src="../footer.html" onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
     </body>

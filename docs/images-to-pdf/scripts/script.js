@@ -1,9 +1,19 @@
+document.addEventListener("DOMContentLoaded",function() {
+    var fileControls = document.querySelectorAll('.file-controls');
+    console.log(fileControls);
+    fileControls.forEach(el => {
+        el.onchange = function(){
+            PDF()
+        };
+    })
+});
+
+
 
 
 const fileInput = document.getElementById("files-input");
 
 function PDF(action){
-    console.log("PDF is Called.");
     let orientation = document.getElementById("files-o").value
     let unit = document.getElementById("files-u").value
     let format = document.getElementById("files-f").value
@@ -23,7 +33,7 @@ function PDF(action){
     var img = new Image()
     if (files.length != 0){
         for (let index = 0; index < files.length; index++) {
-            console.log(files[index]);
+            //console.log(files[index]);
             doc.addPage()
             img.src = URL.createObjectURL(files[index])
             let docwidth = doc.internal.pageSize.getWidth()
@@ -32,7 +42,7 @@ function PDF(action){
             doc.addImage(img, 'png', margin, margin, docwidth-(2*margin), docheight-(2*margin))
         }
         if (action == "download") {
-            //doc.save(filename+".pdf")
+            doc.save(filename+".pdf")
         }
         document.getElementById('main-iframe').setAttribute('src', doc.output('bloburl'));
     }

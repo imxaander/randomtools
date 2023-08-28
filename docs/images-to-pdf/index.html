@@ -7,14 +7,34 @@
         
         <title>Images to PDF</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
-        <script src="scripts/script.js"></script>
+        
     </head>
     <body>
         <iframe src="../header.html" onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
         
+        
         <h3>Add Files..</h3>
-        <input id="files" type="file" multiple>
+        <input id="files-input" type="file" accept=".jpeg, .png, .jpg" multiple>
+        <br>
+        <select id="files-o">
+            <option value="portrait" selected>Portrait</option>
+            <option value="landscape">Landscape</option>
+        </select>
+        <select id="files-u">
+            <option value="in" selected>Inches</option>
+            <option value="mm">Milimeters</option>
+            <option value="cm">Centimeters</option>
+        </select>
+        <select id="files-f">
+            <option value="a4" selected>A4</option>
+            <option value="letter">Letter</option>
+            <option value="a3">A3</option>
+        </select>
+        <button id="files-submit-button" onclick="downloadPDF();">Download PDF</button>
+        
+        <img src="" id="finally"alt="">
 
         <iframe src="../footer.html" onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
+        <script src="scripts/script.js"></script>
     </body>
 </html>

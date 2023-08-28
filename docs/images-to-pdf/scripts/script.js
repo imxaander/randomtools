@@ -1,5 +1,9 @@
-const fileInput = document.getElementById("files");
-function downloadPDF(orientation, unit, format){
+const fileInput = document.getElementById("files-input");
+
+function downloadPDF(){
+    let orientation = document.getElementById("files-o").value
+    let unit = document.getElementById("files-u").value
+    let format = document.getElementById("files-f").value
     var pdfConfig = {
         orientation: orientation,
         unit: unit,
@@ -7,11 +11,24 @@ function downloadPDF(orientation, unit, format){
     }
     
     var doc = new jsPDF(pdfConfig)
-    
+    doc.deletePage(1)
+
+    //loop logic
+    var files = fileInput.files
     var img = new Image()
-    img.src = 'lol.png'
-    doc.addImage(img, 'png', 0, 0, 10, 10)
-    doc.save('doc.pdf')
+    if (files.length != 0) {
+        
+        for (let index = 0; index < files.length; index++) {
+            console.log(files[index]);
+            doc.addPage()
+            img.src = URL.createObjectURL(files[index])
+            console.log(img.src);
+            doc.addImage(img, 'png',0, 0, 10, 10)
+    
+        }
+        doc.save("wow")
+    }else{
+
+    }
 }
 
-//downloadPDF("portrait", "in", "letter")

@@ -1,3 +1,4 @@
+/*
 document.addEventListener("DOMContentLoaded",function() {
     var fileControls = document.querySelectorAll('.file-controls');
     console.log(fileControls);
@@ -7,6 +8,7 @@ document.addEventListener("DOMContentLoaded",function() {
         };
     })
 });
+*/
 
 
 
@@ -44,7 +46,14 @@ function PDF(action){
         if (action == "download") {
             doc.save(filename+".pdf")
         }
-        document.getElementById('main-iframe').setAttribute('src', doc.output('bloburl'));
+        //document.getElementById('main-iframe').setAttribute('src', doc.output('bloburl'));
+    }else{
+        Toastify({
+            text: "Click \"Choose Files\" to add Image\\s.",
+            duration: 3000,
+            gravity: "bottom",
+            backgroundColor: "red"
+            }).showToast();
     }
 }
 

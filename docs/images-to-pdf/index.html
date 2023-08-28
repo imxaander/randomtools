@@ -8,40 +8,69 @@
         <title>Images to PDF</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="../styles/index-style.css">
-        
+        <link rel="stylesheet" href="../libs/toastify-js-1.12.0/src/toastify.css">
     </head>
     <body>
         <iframe src="../header.html" onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
         <div class="wrapper">
-            <input id="files-input" class="file-controls form-control" type="file" accept=".jpeg, .png, .jpg" multiple>
-            
-            <select id="files-o" class="file-controls form-control">
-                <option value="portrait" selected>Portrait</option>
-                <option value="landscape">Landscape</option>
-            </select>
-            <select id="files-f" class="file-controls form-control">
-                <option value="letter" selected>Letter</option>
-                <option value="legal">Legal</option>
-                <option value="a4">A4</option>
-                <option value="ledger">Ledger</option>
-                <option value="tabloid">Tabloid</option>
-                <option value="credit-card">Credit Card</option>
-            </select>
+            <p class="h1" align="center"><b> Image\s to PDF </b></p>
             <br>
-            <input type="number" name="" id="files-margin" value=1 class="file-controls form-control" >
-            <select id="files-u" class="file-controls form-control">
-                <option value="px" >Pixels</option>
-                <option value="in" selected>Inches</option>
-                <option value="mm">Milimeters</option>
-                <option value="cm">Centimeters</option>
-            </select>
-            <input type="text" name="" id="file-name" value="imagestopdf" class="form-control">
-            <button id="files-" onclick="PDF('download');" class="form-control submit-button">Download PDF</button>
+            <div class="form-group">
+                <label for="images">Add Image</label>
+                <input name="images" id="files-input" class="file-controls form-control" type="file" accept=".jpeg, .png, .jpg" multiple>
+            </div>
             
-            <iframe id="main-iframe" style="width: 100%; height: 500px;"></iframe>
+            
+            <div class="row g-2 align-items-center">
+                <div class="form-group col-auto">
+                    <label for="orientation">Orientation</label>
+                    <select name="orientation"id="files-o" class="file-controls form-control">
+                        <option value="portrait" selected>Portrait</option>
+                        <option value="landscape">Landscape</option>
+                    </select>
+                </div>
+                <div class="form-group col-auto">
+                    <label for="size">Size</label>
+                    <select name="size"id="files-f" class="file-controls form-control">
+                        <option value="letter" selected>Letter</option>
+                        <option value="legal">Legal</option>
+                        <option value="a4">A4</option>
+                        <option value="ledger">Ledger</option>
+                        <option value="tabloid">Tabloid</option>
+                        <option value="credit-card">Credit Card</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="row g-2 align-items-center">
+                <div class="form-group col-auto">
+                    <label for="margin">Margin</label>
+                    <input type="number" name="" id="files-margin" value=1 class="file-controls form-control" >
+                </div>
+                <div class="form-group col-auto">
+                    <label for="unit">Unit</label>
+                    <select name="unit" id="files-u" class="file-controls form-control">
+                        <option value="px" >Pixels</option>
+                        <option value="in" selected>Inches</option>
+                        <option value="mm">Milimeters</option>
+                        <option value="cm">Centimeters</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="filename">Filename</label>
+                <input type="text" name="filename" id="file-name" value="imagestopdf" class="form-control">
+            </div>
+            <br>
+            <button id="files-" onclick="PDF('download');" class="form-control submit-button">Download PDF</button>
+            <br>
+            
         </div>
+
 
         <iframe src="../footer.html" onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
         <script src="scripts/script.js"></script>
+        <script src="../libs/toastify-js-1.12.0/src/toastify.js"></script>
     </body>
 </html>

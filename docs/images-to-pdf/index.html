@@ -3,43 +3,43 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Images to PDF">
-        <link rel="stylesheet" href="../styles/index-style.css">
-        
+        <link href="../libs/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <script src="../libs/bootstrap/js/bootstrap.js"></script>
         <title>Images to PDF</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="../styles/index-style.css">
         
     </head>
     <body>
         <iframe src="../header.html" onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
-        
-        
-        <h3>Add Files..</h3>
-        <input id="files-input" class="file-controls" type="file" accept=".jpeg, .png, .jpg" multiple>
-        <br>
-        <select id="files-o" class="file-controls">
-            <option value="portrait" selected>Portrait</option>
-            <option value="landscape">Landscape</option>
-        </select>
-        <select id="files-u" class="file-controls">
-            <option value="px" >Pixels</option>
-            <option value="in" selected>Inches</option>
-            <option value="mm">Milimeters</option>
-            <option value="cm">Centimeters</option>
-        </select>
-        <select id="files-f" class="file-controls">
-            <option value="letter" selected>Letter</option>
-            <option value="legal">Legal</option>
-            <option value="a4">A4</option>
-            <option value="ledger">Ledger</option>
-            <option value="tabloid">Tabloid</option>
-            <option value="credit-card">Credit Card</option>
-        </select>
-        <br>
-        <input type="number" name="" id="files-margin" value=1 class="file-controls">
-        <input type="text" name="" id="file-name" value="imagestopdf">
-        <button id="files-submit-button" onclick="PDF('download');">Download PDF</button>
-        
-        <iframe id="main-iframe" style="width: 100%; height: 500px;"></iframe>
+        <div class="wrapper">
+            <input id="files-input" class="file-controls form-control" type="file" accept=".jpeg, .png, .jpg" multiple>
+            
+            <select id="files-o" class="file-controls form-control">
+                <option value="portrait" selected>Portrait</option>
+                <option value="landscape">Landscape</option>
+            </select>
+            <select id="files-f" class="file-controls form-control">
+                <option value="letter" selected>Letter</option>
+                <option value="legal">Legal</option>
+                <option value="a4">A4</option>
+                <option value="ledger">Ledger</option>
+                <option value="tabloid">Tabloid</option>
+                <option value="credit-card">Credit Card</option>
+            </select>
+            <br>
+            <input type="number" name="" id="files-margin" value=1 class="file-controls form-control" >
+            <select id="files-u" class="file-controls form-control">
+                <option value="px" >Pixels</option>
+                <option value="in" selected>Inches</option>
+                <option value="mm">Milimeters</option>
+                <option value="cm">Centimeters</option>
+            </select>
+            <input type="text" name="" id="file-name" value="imagestopdf" class="form-control">
+            <button id="files-" onclick="PDF('download');" class="form-control submit-button">Download PDF</button>
+            
+            <iframe id="main-iframe" style="width: 100%; height: 500px;"></iframe>
+        </div>
 
         <iframe src="../footer.html" onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
         <script src="scripts/script.js"></script>

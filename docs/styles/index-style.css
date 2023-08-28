@@ -1,6 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz@9..40&display=swap');
+
 h1, h2, h3, h4, h5, h6, html, body{
+    font-family: 'DM Sans';
     margin:0;
 }
-#topbar{
-    text-align: center;
+.navbar{
+    padding: 0!important;
+}
+.file-controls{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.topbar{
+    color: white;
+    padding: 10px;
+    background: rgb(34,193,195);
+    background: linear-gradient(30deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+    width: 100%;
+}
+.topbar a{
+    color: white;
+}
+.submit-button{
+    color: white;
+    background: rgb(34,193,195);
+    background: linear-gradient(30deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+}
+/*cp */
+@media only screen and (max-width: 768px) {
+    .wrapper{
+        margin: 10px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
 }

@@ -51,6 +51,7 @@ function PDF(action){
         Toastify({
             text: "Click \"Choose Files\" to add Image\\s.",
             duration: 3000,
+            position: "center",
             gravity: "bottom",
             backgroundColor: "red"
             }).showToast();

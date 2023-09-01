@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz@9..40&display=swap');
-
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 h1, h2, h3, h4, h5, h6, html, body{
     font-family: 'DM Sans';
     margin:0;
@@ -71,4 +71,10 @@ h1, h2, h3, h4, h5, h6, html, body{
 /* spin the wheel */
 .center-div svg{
     cursor:pointer;
+}
+
+
+/* footer */
+#footer{
+    padding: 10px;
 }

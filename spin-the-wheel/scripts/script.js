@@ -21,12 +21,12 @@ function generateWheel(){
 
     arr.forEach(element => {
         if(element.trim()!=""){
-            console.log("valid");
+            // console.log("valid");
             data.push({"label": element})
         }
     });
 
-    console.log(str);
+    // console.log(str);
 
     w = 300 - padding.left - padding.right,
             h = 300 - padding.top  - padding.bottom,
@@ -79,7 +79,7 @@ function generateWheel(){
     function spin(d){
         container.on("click", null);
         //all slices have been seen, all done
-        console.log("OldPick: " + oldpick.length, "Data length: " + data.length);
+        // console.log("OldPick: " + oldpick.length, "Data length: " + data.length);
         if(oldpick.length == data.length){
             Toastify({
 
@@ -102,10 +102,10 @@ function generateWheel(){
         picked = picked >= data.length ? (picked % data.length) : picked;
         if(oldpick.indexOf(picked) !== -1){
             d3.select(this).call(spin);
-            console.log(oldpick.indexOf(picked), "picked so spin");
+            // console.log(oldpick.indexOf(picked), "picked so spin");
             return;
         } else {
-            console.log(oldpick.indexOf(picked), "not picked ")
+            // console.log(oldpick.indexOf(picked), "not picked ")
             if (rad.checked) {
                 oldpick.push(picked); 
             }

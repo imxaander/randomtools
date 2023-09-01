@@ -13,7 +13,7 @@ var data = [];
 
 var svg = d3.select('#chart')
 function generateWheel(){
-    
+    var rad = document.getElementById("removeAfterRadio")
     data = [];
     var str = document.getElementById("add-item-input").value
     var arr = str.split(",")
@@ -92,7 +92,7 @@ function generateWheel(){
             }).showToast();
             return;
         }
-        var  ps       = 360/data.length,
+        var ps = 360/data.length,
                 pieslice = Math.round(1440/data.length),
                 rng      = Math.floor((Math.random() * 1440) + 360);
             
@@ -106,7 +106,9 @@ function generateWheel(){
             return;
         } else {
             console.log(oldpick.indexOf(picked), "not picked ")
-            oldpick.push(picked);
+            if (rad.checked) {
+                oldpick.push(picked); 
+            }
         }
         rotation += 90 - Math.round(ps/2);
         vis.transition()
@@ -114,8 +116,10 @@ function generateWheel(){
             .attrTween("transform", rotTween)
             .each("end", function(){
                 //mark question as seen
-                d3.select(".slice:nth-child(" + (picked + 1) + ") path")
+                if (rad.checked) {
+                    d3.select(".slice:nth-child(" + (picked + 1) + ") path")
                     .attr("fill", "#101");
+                }
                 oldrotation = rotation;
                 document.getElementById("chosen-item").innerHTML = data[picked].label
                 chosenModal.toggle()

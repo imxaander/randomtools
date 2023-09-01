@@ -22,9 +22,19 @@ h1, h2, h3, h4, h5, h6, html, body{
     color: white;
 }
 .submit-button{
+    
+    border: none;
     color: white;
     background: rgb(34,193,195);
     background: linear-gradient(30deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+}
+.dropdowns{
+    background-color:rgb(112, 112, 112);
+    padding: 0;
+}
+
+.navbar-toggler{
+    border: none;
 }
 /*cp */
 @media only screen and (max-width: 768px) {

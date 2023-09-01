@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded",function() {
 });
 */
 
-
+window.jsPDF = window.jspdf.jsPDF
 
 
 const fileInput = document.getElementById("files-input");

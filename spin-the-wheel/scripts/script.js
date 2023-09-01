@@ -77,7 +77,6 @@ function generateWheel(){
     container.on("click", spin);
     
     function spin(d){
-        gBtn.setAttribute("disabled", "")
         container.on("click", null);
         //all slices have been seen, all done
         console.log("OldPick: " + oldpick.length, "Data length: " + data.length);
@@ -92,6 +91,7 @@ function generateWheel(){
             }).showToast();
             return;
         }
+        gBtn.setAttribute("disabled", "")
         var ps = 360/data.length,
                 pieslice = Math.round(1440/data.length),
                 rng      = Math.floor((Math.random() * 1440) + 360);

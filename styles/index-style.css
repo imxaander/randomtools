@@ -32,10 +32,12 @@ h1, h2, h3, h4, h5, h6, html, body{
     background-color:rgb(112, 112, 112);
     padding: 0;
 }
-
 .navbar-toggler{
     border: none;
 }
+
+
+
 /*cp */
 @media only screen and (max-width: 768px) {
     .wrapper{
@@ -64,3 +66,6 @@ h1, h2, h3, h4, h5, h6, html, body{
         width: 700px;
     }
 }
+
+
+/* spin the wheel */

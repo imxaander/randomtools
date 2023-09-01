@@ -13,6 +13,7 @@ var data = [];
 
 var svg = d3.select('#chart')
 function generateWheel(){
+    var gBtn = document.getElementById("genBtn")
     var rad = document.getElementById("removeAfterRadio")
     data = [];
     var str = document.getElementById("add-item-input").value
@@ -76,7 +77,7 @@ function generateWheel(){
     container.on("click", spin);
     
     function spin(d){
-        
+        gBtn.setAttribute("disabled", "")
         container.on("click", null);
         //all slices have been seen, all done
         console.log("OldPick: " + oldpick.length, "Data length: " + data.length);
@@ -88,7 +89,6 @@ function generateWheel(){
                 position: "center",
                 duration: 3000,
                 backgroundColor: "red"
-                
             }).showToast();
             return;
         }
@@ -125,6 +125,7 @@ function generateWheel(){
                 chosenModal.toggle()
                 /* Comment the below line for restrict spin to sngle time */
                 container.on("click", spin);
+                gBtn.removeAttribute("disabled")
             });
     }
     //make arrow

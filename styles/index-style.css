@@ -22,7 +22,6 @@ h1, h2, h3, h4, h5, h6, html, body{
     color: white;
 }
 .submit-button{
-    
     border: none;
     color: white;
     background: rgb(34,193,195);
@@ -77,4 +76,59 @@ h1, h2, h3, h4, h5, h6, html, body{
 /* footer */
 #footer{
     padding: 10px;
+}
+
+.video-player {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+}
+.video-player iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.search-results{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.search-results div{
+    width: 32%;
+    height: 100px;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color:white;
+}
+
+.search-results div:hover{
+    background-color: white;
+}
+
+.list-items{
+    border: solid 0.5px;
+    margin: 1px;
+}
+
+#item-episodes div{
+    border: solid 0.5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    padding: 10px;
+    
+    border-radius: 5px;
+}
+
+#item-episodes div:hover{
+    background-color: rgb(122, 122, 122);
+}
+
+.spinner{
+    font-size: 25px;
 }

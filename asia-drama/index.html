@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- mmeta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Watch Asian Drama!">
+        <meta property="og:type"        content="website" />
+        <meta property="og:title"       content="Random Tools - Asian Dramas" />
+        <meta property="og:description" content="No popup ads! Watch asian dramas for free!" />
+        <meta property="og:image"       content="favicon.ico" />
+        
+        <!-- unique imports and ads -->
+        <script src="https://kit.fontawesome.com/6b9c8a6e93.js" crossorigin="anonymous"></script>
+
+        <!-- Links and script imports -->
+        <link rel="icon" type="image/x-icon" href="../favicon.ico">
+        <link href="../libs/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <script src="../libs/bootstrap/js/bootstrap.bundle.js"></script>
+        <link rel="stylesheet" href="../styles/index-style.css">
+        <link rel="stylesheet" href="../libs/toastify-js-1.12.0/src/toastify.css">
+
+        <!-- title -->
+        <title>Random Tools - Asia Drama Watcher</title>
+    </head>
+    <body>
+        <iframe src="../header.html" onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
+        <div class="wrapper">
+          <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <button class="nav-link active" id="nav-search-tab" data-bs-toggle="tab" data-bs-target="#nav-search" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Search</button>
+              <button class="nav-link" id="nav-watch-tab" data-bs-toggle="tab" data-bs-target="#nav-watch" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Watch</button>
+            </div>
+          </nav>
+          <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-search" role="tabpanel" aria-labelledby="nav-search-tab">
+              <br>
+              <input type="text"   name="query" id="search" oninput="search()" placeholder="Type something..."> iimprove ko pa toh... hgehe ^^<br><br>
+              <div class="search-results">
+    
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="nav-watch" role="tabpanel" aria-labelledby="nav-watch-tab">
+              <div class="video-player">
+                <iframe id="video-player-iframe" sandbox = "allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation" width="100%" height="100%" allowfullscreen src="none" target="_blank"></iframe>
+              </div>
+            </div>
+          </div>
+          
+
+        </div>
+
+        <!-- Modal -->
+        <!-- Vertically centered modal -->
+        <div class="modal fade" id="item-modal"  aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="" id="item-title">Result:</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>Episodes: </p>
+                <div id="item-episodes">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- for ads and scripts -->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7483436228175068" crossorigin="anonymous"></script>
+        <iframe src="../footer.html" onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
+        <script src="scripts/script.js"></script>
+        <script src="../libs/toastify-js-1.12.0/src/toastify.js"></script>
+    </body>
+</html>

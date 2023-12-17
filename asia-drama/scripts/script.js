@@ -31,11 +31,10 @@ function search(){
     );
 }
 
-var movieModal = new bootstrap.Modal(document.getElementById('item-modal'));
-var movieHeader =document.getElementsByClassName("modal-trailer")[0];
 function detail(id, name){
-    movieHeader.innerHTML = "";
-    document.getElementById("item-title").innerHTML = name;
+    document.getElementById("nav-watch-tab").click();
+    document.querySelector(".video-player").innerHTML = "Select an Episode :DD";
+    document.querySelector(".video-title").innerHTML = name;
     var wrapper = document.getElementById('item-episodes');
     
     wrapper.innerHTML = '<i class="fas fa-spinner spinner"></i>';
@@ -47,29 +46,6 @@ function detail(id, name){
         var tab = document.createElement("div");
         tab.innerHTML = page.getElementsByClassName("tab-content left-tab-1")[0].outerHTML;
 
-        let trailer;
-        let result = true;
-        try{
-            page.querySelector(".trailer").querySelector("iframe").src;
-        }catch(err){
-            result = false;
-        }
-        if(result){
-            trailer = page.querySelector(".trailer").querySelector("iframe").src;
-            movieHeader.innerHTML += `      
-            <iframe 
-            class="bg-video"
-            src="${trailer}?rel=0?version=3&autoplay=1&controls=0&&showinfo=0&loop=1"
-            frameBorder="0"
-            allowFullScreen
-            allow="autoplay"
-            />`;
-        }else{
-            movieHeader.innerHTML += `<p> Trailer not available </p`;
-
-        }
-
-        
         var ul = tab.querySelector("ul");
         
         wrapper.innerHTML = "";
@@ -84,7 +60,6 @@ function detail(id, name){
             item.setAttribute("class", `12`);
             item.innerHTML = `Episode ${number}:  ${date}`;
             
-            console.log(trailer)
             wrapper.appendChild(item);
         }
     });
@@ -95,14 +70,13 @@ function watch(id){
     var wrapper = document.getElementsByClassName("video-player")[0];
     wrapper.innerHTML = '<i class="fas fa-spinner spinner"></i>';
     
-    movieModal.toggle();
-    document.getElementById("nav-watch-tab").click();
 
     let link = "https://dramacool.com.pa"+id;
     fetch(link).then(response => response.text()).then(html => {
         var page = document.createElement("html")
         page.innerHTML = html;
-        
+        var title = page.querySelector("strong").innerHTML;
+        document.querySelector(".video-title").innerHTML = title;
         var url = page.getElementsByClassName("watch_video watch-iframe")[0].querySelector("iframe").getAttribute("src");
         console.log(url);
         wrapper.innerHTML = `<iframe id="video-player-iframe" sandbox = "allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation" width="100%" height="100%" allowfullscreen src="${url}" target="_blank"></iframe>`;

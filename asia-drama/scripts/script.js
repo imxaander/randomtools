@@ -19,7 +19,7 @@ function search(){
             let img = child.querySelector('a').querySelector('img').getAttribute("data-original");
             let item = document.createElement("div");
             item.setAttribute("class", "list-items");
-            item.setAttribute("onclick", `detail('${href}', '${name}')`);
+            item.setAttribute("onclick", `detail('${href}', \`${name}\`)`);
             item.setAttribute("style", `background-image: url('${img}')`)
             item.innerHTML = `${name}`;
 

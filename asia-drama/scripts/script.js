@@ -65,6 +65,9 @@ function detail(id, name){
 }
 
 function watch(id){
+    var wrapper = document.getElementsByClassName("video-player")[0];
+    wrapper.innerHTML = '<i class="fas fa-spinner spinner"></i>';
+    
     movieModal.toggle();
     document.getElementById("nav-watch-tab").click();
 
@@ -74,7 +77,8 @@ function watch(id){
         page.innerHTML = html;
         
         var url = page.getElementsByClassName("watch_video watch-iframe")[0].querySelector("iframe").getAttribute("src");
-        document.getElementById("video-player-iframe").setAttribute("src", url);
+        console.log(url);
+        wrapper.innerHTML = `<iframe id="video-player-iframe" sandbox = "allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation" width="100%" height="100%" allowfullscreen src="${url}" target="_blank"></iframe>`;
     });
 }
 /*

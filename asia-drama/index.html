@@ -25,6 +25,7 @@
     <body>
         <iframe src="../header.html" onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
         <div class="wrapper">
+          <p class="h1" align="center"><b>Asian Drama</b></p>
           <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
               <button class="nav-link active" id="nav-search-tab" data-bs-toggle="tab" data-bs-target="#nav-search" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Search</button>
@@ -56,10 +57,12 @@
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="" id="item-title">Result:</h5>
+                <div class="modal-trailer">
+
+                </div>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <p>Episodes: </p>
                 <div id="item-episodes">
                 </div>
               </div>

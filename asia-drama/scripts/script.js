@@ -63,14 +63,12 @@ function detail(id, name){
             wrapper.appendChild(item);
         }
     });
-    movieModal.toggle();
 }
 
 function watch(id){
     var wrapper = document.getElementsByClassName("video-player")[0];
     wrapper.innerHTML = '<i class="fas fa-spinner spinner"></i>';
     
-
     let link = "https://dramacool.com.pa"+id;
     fetch(link).then(response => response.text()).then(html => {
         var page = document.createElement("html")
@@ -83,7 +81,9 @@ function watch(id){
     });
 }
 
+function addToFavourties(name, image){
 
+}
 /*
 
 

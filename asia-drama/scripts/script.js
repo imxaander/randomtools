@@ -19,7 +19,7 @@ function search(){
             let img = child.querySelector('a').querySelector('img').getAttribute("data-original");
             let item = document.createElement("div");
             item.setAttribute("class", "list-items");
-            item.setAttribute("onclick", `detail('${href}', \`${name}\`)`);
+            item.setAttribute("onclick", `detail('${href}', \`${name}\`, '${img}') `);
             item.setAttribute("style", `background-image: url('${img}')`)
             item.innerHTML = `${name}`;
 
@@ -31,10 +31,11 @@ function search(){
     );
 }
 
-function detail(id, name){
+function detail(id, name, img){
     document.getElementById("nav-watch-tab").click();
     document.querySelector(".video-player").innerHTML = "Select an Episode :DD";
     document.querySelector(".video-title").innerHTML = name;
+    document.querySelector(".fav-button").setAttribute("onclick", `fav(\`${name}\`,\`${img}\`, \`${id}\` )`)
     var wrapper = document.getElementById('item-episodes');
     
     wrapper.innerHTML = '<i class="fas fa-spinner spinner"></i>';
@@ -50,6 +51,7 @@ function detail(id, name){
         
         wrapper.innerHTML = "";
         
+
         for(let child of Array.from(ul.children)){
 
             let item = document.createElement("div");
@@ -81,11 +83,50 @@ function watch(id){
     });
 }
 
-function addToFavourties(name, image){
+function fav(name, image, id){
+    if(localStorage.getItem("favs") == null){
+        localStorage.setItem("favs", "")
+    }
+    var curfav = localStorage.getItem("favs");
 
+    var tofav = `"${name}", "${image}", "${id}"`
+    if(curfav.includes(tofav)){
+        var ret = curfav.replace(tofav, "")
+        localStorage.setItem("favs", ret)
+    }else{
+        var str = localStorage.getItem("favs");
+        
+        localStorage.setItem("favs", `${str}, "${name}", "${image}", "${id}", `)
+    }
+    refreshFav();
+    
+   //console.log(name + " " + image)
 }
-/*
+
+function refreshFav(){
+    var wrapper = document.querySelector(".favs");
+    wrapper.innerHTML = '';
+
+    var favs = localStorage.getItem("favs").split(", ");
+    favs = favs.filter(item => item);
+    if(favs.length == 0){wrapper.innerHTML = 'No favourites.';}
+    for(i = 0; i < favs.length; i+=3){
+        let id = favs[i+2].replace(/^"(.*)"$/, '$1');
+        let img = favs[i+1].replace(/^"(.*)"$/, '$1');
+        let name = favs[i].replace(/^"(.*)"$/, '$1');
+        
+        let item = document.createElement("div");
+        item.setAttribute("class", "list-items");
+        item.setAttribute("onclick", `detail(\'${id}\', \`${name}\`, '${img}') `);
+        item.setAttribute("style", `background-image: url('${img}')`)
+        item.innerHTML = `${favs[i]}`;
 
 
-*/
+        wrapper.appendChild(item);
+    }
+}
+
+refreshFav();
+
+
 

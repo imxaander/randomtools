@@ -106,6 +106,21 @@ h1, h2, h3, h4, h5, h6, html, body{
     text-align: center;
     color:white;
 }
+.favs{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.favs div{
+    width: 32%;
+    height: 100px;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color:white;
+}
 
 .search-results div:hover{
     background-color: white;

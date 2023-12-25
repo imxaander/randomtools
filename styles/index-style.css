@@ -189,9 +189,11 @@ html, body{
 }
 
 .item-text{
-    font-size: 12px;
+    font-size: 15px;
     color: var(--dark);
     position: relative;
+    font-style: italic;
+    font-weight: bold;
 }
 
 #p_5890238{

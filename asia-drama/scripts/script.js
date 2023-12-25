@@ -186,9 +186,6 @@ function checkFav(img){
         favbtn.setAttribute("class", "far fa-star fav-button")
     }
 }
-refreshFav();
-document.getElementById("search").dispatchEvent(new Event('input'));
-
 
 function toast(str, clr){
     Toastify({
@@ -199,6 +196,8 @@ function toast(str, clr){
         backgroundColor: clr
         }).showToast();
 }
+
+
 var iframes;
 var innerDoc;
 
@@ -206,4 +205,34 @@ function coi(){
     iframes = document.getElementById('video-player-iframe');
     innerDoc = (iframes.contentDocument) ? iframes.contentDocument : iframes.contentWindow.document;
 }
+
+
+function setColor(){}
+document.addEventListener("DOMContentLoaded", function(){
+    setColor = (t)=>{
+        var val = document.getElementById("color-input")
+        var r = document.querySelector(':root');
+    
+        if(localStorage.getItem("color") == null){
+            localStorage.setItem("color", val.value);
+        }else{
+            r.style.setProperty('--dark', val.value);
+            localStorage.setItem("color", val.value)
+        }
+    
+        if(t == 1){
+            console.log("sad")
+            r.style.setProperty('--dark', localStorage.getItem("color"));
+        }
+    };
+
+    
+});
+var r = document.querySelector(':root');
+r.style.setProperty('--dark', localStorage.getItem("color"));
+document.getElementById("color-input").setAttribute("value", localStorage.getItem("color"))
+
+
+refreshFav();
+document.getElementById("search").dispatchEvent(new Event('input'));
 

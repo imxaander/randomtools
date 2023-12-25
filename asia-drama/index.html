@@ -25,24 +25,27 @@
     <body>
         <iframe src="../header.html" onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
         <div class="wrapper">
-          <p class="h1" align="center"><b>Asian Drama</b></p>
-          <nav>
+          <nav class=" d-none">
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
               <button class="nav-link active" id="nav-search-tab" data-bs-toggle="tab" data-bs-target="#nav-search" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Search</button>
               <button class="nav-link" id="nav-watch-tab" data-bs-toggle="tab" data-bs-target="#nav-watch" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Watch</button>
             </div>
           </nav>
+          <div>
+            <p class="h2 d-inline-block" >Watch</p>
+            <input type="text" class="form-control w-50 d-inline-block float-end"   name="query" id="search" oninput="search()" placeholder="Type something..."><br>
+          </div>
           <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="nav-search" role="tabpanel" aria-labelledby="nav-search-tab">
               <br>
-              
-              <input type="text"   name="query" id="search" oninput="search()" placeholder="Type something..."> <- <br><br>
-              <h4>Favourites</h4>
-                <div class="favs">
+              <p class="h4">Favourites</p>
+                <div class="favs film-card">
                     
                 </div>
-              <hr>
-              <div class="search-results">
+              <br>
+              <p class="h4">Search :</p>
+
+              <div class="search-results film-card">
               
               </div>
             </div>
@@ -53,7 +56,7 @@
                 <p>^^ Search for anything :DD</p>
               </div>
               <div class="video-info">
-                <span><h3 class="video-title"> </h3><i class="fas fa-star fav-button" onclick=""></i></span>
+                <span><p class="video-title d-inline-block h3"> </p> <p class="p-2  d-inline-block h3"><i class="fas fa-star fav-button"onclick=""></i></p></span>
                 <h6 class="video-date"></h6>
 
               </div><br>
@@ -61,8 +64,6 @@
               </div>
             </div>
           </div>
-          
-
         </div>
 
         <!-- Modal -->
@@ -77,7 +78,7 @@
                 </div>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="modal-body">
+              <div class="modal-body">  
                 
               </div>
             </div>
@@ -85,7 +86,6 @@
         </div>
         <!-- for ads and scripts -->
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7483436228175068" crossorigin="anonymous"></script>
-        <iframe src="../footer.html" onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
         <script src="scripts/script.js"></script>
         <script src="../libs/toastify-js-1.12.0/src/toastify.js"></script>
     </body>

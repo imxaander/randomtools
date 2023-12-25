@@ -1,8 +1,25 @@
 function search(){
+    document.getElementById("nav-search-tab").click();
     var query = document.getElementById("search").value;
+    var site;
+    var isRecent;
+
+    //set to true to default in input
+    if(true){
+        site = 'https://dramacool.com.pa/search?type=movies&keyword='+query;
+        console.log("may laman")
+        isRecent = false;
+    }else{
+        site = `https://dramacool.com.pa/`;
+        console.log("walang laman")
+        isRecent = true;
+    }
+    
     var wrapper = document.getElementsByClassName('search-results')[0];
     wrapper.innerHTML = '<i class="fas fa-spinner spinner"></i>';
-    fetch('https://dramacool.com.pa/search?type=movies&keyword='+query).then(response => response.text()).then(html => 
+
+    
+    fetch(site).then(response => response.text()).then(html => 
     {
         
         var page = document.createElement('html');
@@ -13,18 +30,25 @@ function search(){
         wrapper.innerHTML = "";
   
         for(let child of ul.children){
-            //informations
+
+            let itemDiv = document.createElement("div");
             let href = child.querySelector('a').getAttribute("href").slice(14);
             let name = child.querySelector('h3').innerHTML;
             let img = child.querySelector('a').querySelector('img').getAttribute("data-original");
-            let item = document.createElement("div");
-            item.setAttribute("class", "list-items");
-            item.setAttribute("onclick", `detail('${href}', \`${name}\`, '${img}') `);
-            item.setAttribute("style", `background-image: url('${img}')`)
-            item.innerHTML = `${name}`;
+            let itemImg = document.createElement("img");
 
-
-            wrapper.appendChild(item);
+            if(isRecent){
+                href = getTitle(href);
+            }
+            itemImg.setAttribute("class", "item-img")
+            itemImg.src = img;
+            itemDiv.appendChild(itemImg);
+            itemDiv.setAttribute("class", "list-items");
+            itemDiv.setAttribute("onclick", `detail('${href}', \`${name}\`, '${img}') `);
+            
+            itemDiv.innerHTML += `<p class="item-text">${name}</p>`;
+        
+            wrapper.appendChild(itemDiv);
         }
         page.remove();
     }
@@ -48,10 +72,12 @@ function detail(id, name, img){
         tab.innerHTML = page.getElementsByClassName("tab-content left-tab-1")[0].outerHTML;
 
         var ul = tab.querySelector("ul");
-        
-        wrapper.innerHTML = "";
-        
 
+        
+        checkFav(img);
+        wrapper.innerHTML = "";
+
+        
         for(let child of Array.from(ul.children)){
 
             let item = document.createElement("div");
@@ -79,8 +105,12 @@ function watch(id){
         document.querySelector(".video-title").innerHTML = title;
         var url = page.getElementsByClassName("watch_video watch-iframe")[0].querySelector("iframe").getAttribute("src");
         console.log(url);
-        wrapper.innerHTML = `<iframe id="video-player-iframe" sandbox = "allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation" width="100%" height="100%" allowfullscreen src="${url}" target="_blank"></iframe>`;
+        wrapper.innerHTML = `<iframe id="video-player-iframe" sandbox = "allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation allow-modals" width="100%" height="100%" allowfullscreen src="${url}" target="_blank"></iframe>`;
     });
+    var cssLink = document.createElement("link");
+    cssLink.href = "../styles/index-style.css"; 
+    cssLink.rel = "stylesheet"; 
+    cssLink.type = "text/css"; 
 }
 
 function fav(name, image, id){
@@ -93,13 +123,16 @@ function fav(name, image, id){
     if(curfav.includes(tofav)){
         var ret = curfav.replace(tofav, "")
         localStorage.setItem("favs", ret)
+        toast("Removed to favourites.", "red")
     }else{
         var str = localStorage.getItem("favs");
+        toast("Added to favourites.", "green")
         
         localStorage.setItem("favs", `${str}, "${name}", "${image}", "${id}", `)
     }
-    refreshFav();
     
+    refreshFav();
+    checkFav(image);
    //console.log(name + " " + image)
 }
 
@@ -115,18 +148,62 @@ function refreshFav(){
         let img = favs[i+1].replace(/^"(.*)"$/, '$1');
         let name = favs[i].replace(/^"(.*)"$/, '$1');
         
-        let item = document.createElement("div");
-        item.setAttribute("class", "list-items");
-        item.setAttribute("onclick", `detail(\'${id}\', \`${name}\`, '${img}') `);
-        item.setAttribute("style", `background-image: url('${img}')`)
-        item.innerHTML = `${favs[i]}`;
-
-
-        wrapper.appendChild(item);
+        let itemDiv = document.createElement("div");
+        let itemImg = document.createElement("img");
+        itemImg.setAttribute("class", "item-img")
+        itemImg.src = img;
+        itemDiv.appendChild(itemImg);
+        itemDiv.setAttribute("class", "list-items");
+        itemDiv.setAttribute("onclick", `detail('${id}', \`${name}\`, '${img}') `);
+        
+        itemDiv.innerHTML += `<p class="item-text">${name}</p>`;
+        
+        wrapper.appendChild(itemDiv);
     }
 }
 
+
+function getTitle(str) {
+    console.log(str)
+
+    var thirdDashIndex = str.lastIndexOf('-'); 
+
+    let modstr = str.slice(11, thirdDashIndex-8)
+    console.log(modstr)
+    return modstr;
+  }
+
+function removeAds(){
+    document.getElementById('video-player').contentWindow.document.querySelector("");
+}
+
+function checkFav(img){
+    var favbtn = document.querySelector(".fav-button");
+    var ls = localStorage.getItem("favs");
+    if(ls.includes(img)){
+        favbtn.setAttribute("class", "fas fa-star fav-button")
+    }else{
+        favbtn.setAttribute("class", "far fa-star fav-button")
+    }
+}
 refreshFav();
+document.getElementById("search").dispatchEvent(new Event('input'));
 
 
+function toast(str, clr){
+    Toastify({
+        text: str,
+        duration: 3000,
+        position: "center",
+        gravity: "bottom",
+        backgroundColor: clr
+        }).showToast();
+}
+var iframes;
+var innerDoc;
+
+function coi(){
+    iframes = document.getElementById('video-player-iframe');
+    innerDoc = (iframes.contentDocument) ? iframes.contentDocument : iframes.contentWindow.document;
+}
 

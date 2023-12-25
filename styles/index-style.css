@@ -4,23 +4,32 @@ h1, h2, h3, h4, h5, h6, html, body{
     font-family: 'DM Sans';
     margin:0;
 }
+
+:root{
+    --lightest: #FFFFFFFF;
+    --medlight: #FFFFFFFF;
+    --light: #FFFFFFFF;
+    --dark: rgb(32, 29, 29);
+    --meddark: #FFFFFFFF;
+    --darkest: #FFFFFFFF;
+
+}
 .navbar{
-    padding: 0!important;
+    padding: 10px;
+    font-size: 40px!important;
 }
 .file-controls{
     margin-top: 5px;
     margin-bottom: 5px;
 }
 .topbar{
-    color: white;
+    color: var(--dark);
     padding: 5px!important;
-    background: rgb(34,193,195);
-    background: linear-gradient(30deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+    background: white;
     width: 100%;
+
 }
-.topbar a{
-    color: white;
-}
+
 .submit-button{
     border: none;
     color: white;
@@ -35,12 +44,24 @@ h1, h2, h3, h4, h5, h6, html, body{
     border: none;
 }
 
-
+#navbar-tool-list ul li a{
+    color: var(--dark)!important;
+}
 
 /*cp */
 @media only screen and (max-width: 768px) {
     .wrapper{
         margin: 10px;
+    }
+    .film-card div{
+        width: 29%;
+        height: 200px;
+        cursor: pointer;
+        background-size: cover;
+        background-position: center;
+        text-align: center;
+        color:white;
+        border-radius: 20px;
     }
 }
 
@@ -55,14 +76,40 @@ h1, h2, h3, h4, h5, h6, html, body{
 @media only screen and (min-width: 992px) {
     .wrapper{
         margin: auto;
-        width: 500px;
+        width: 700px;
+    }
+    #navbar-tool-list{
+        padding-left: 50px;
+    }
+    #web-tag{
+        padding-right: 50px;
+    }
+    .film-card div{
+        width: 18%;
+        height: 250px;
+        cursor: pointer;
+        background-size: cover;
+        background-position: center;
+        text-align: center;
+        color:white;
+        border-radius: 20px;
     }
 }
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
     .wrapper{
         margin: auto;
-        width: 700px;
+        width: 1000px;
+    }
+    .film-card div{
+        width: 18%;
+        height: 250px;
+        cursor: pointer;
+        background-size: cover;
+        background-position: center;
+        text-align: center;
+        color:white;
+        border-radius: 20px;
     }
 }
 
@@ -97,38 +144,22 @@ h1, h2, h3, h4, h5, h6, html, body{
     flex-wrap: wrap;
 }
 
-.search-results div{
-    width: 32%;
-    height: 100px;
-    cursor: pointer;
-    background-size: cover;
-    background-position: center;
-    text-align: center;
-    color:white;
-}
 .favs{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
 }
 
-.favs div{
-    width: 32%;
-    height: 100px;
-    cursor: pointer;
-    background-size: cover;
-    background-position: center;
-    text-align: center;
-    color:white;
-}
-
-.search-results div:hover{
-    background-color: white;
-}
-
 .list-items{
-    border: solid 0.5px;
-    margin: 1px;
+    margin: 5px;
+    
+}
+
+.item-img{
+    border-radius: 25px;
+    overflow: hidden;
+    width: 100%;
+    height: 200px;
 }
 
 #item-episodes div{
@@ -151,4 +182,18 @@ h1, h2, h3, h4, h5, h6, html, body{
     position: absolute; float: left; clear: both; width: 100%; height: 350px; 
     z-index: 0; 
     left: no-repeat; 
+}
+
+.item-text{
+    font-size: 12px;
+    color: var(--dark);
+    position: relative;
+}
+
+#p_5890238{
+    display: none!important;
+}
+.fav-button{
+    cursor: pointer;
+    color:rgb(199, 199, 44)
 }

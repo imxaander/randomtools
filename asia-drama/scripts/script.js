@@ -230,8 +230,6 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 var r = document.querySelector(':root');
 r.style.setProperty('--dark', localStorage.getItem("color"));
-document.getElementById("color-input").setAttribute("value", localStorage.getItem("color"))
-
 
 refreshFav();
 document.getElementById("search").dispatchEvent(new Event('input'));

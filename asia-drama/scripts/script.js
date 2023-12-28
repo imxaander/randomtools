@@ -1,3 +1,9 @@
+if (!String.prototype.includes) {
+    String.prototype.includes = function() {
+        'use strict';
+        return String.prototype.indexOf.apply(this, arguments) !== -1;
+    };
+}
 function search(){
     document.getElementById("nav-search-tab").click();
     var query = document.getElementById("search").value;

@@ -1,3 +1,7 @@
+if(!("favs" in localStorage)){
+    localStorage.setItem("favs", "")
+    
+}
 if (!String.prototype.includes) {
     String.prototype.includes = function() {
         'use strict';
@@ -120,9 +124,7 @@ function watch(id){
 }
 
 function fav(name, image, id){
-    if(localStorage.getItem("favs") == null){
-        localStorage.setItem("favs", "")
-    }
+
     var curfav = localStorage.getItem("favs");
 
     var tofav = `"${name}", "${image}", "${id}"`

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- mmeta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Watch Asian Drama!">
+        <meta property="og:type"        content="website" />
+        <meta property="og:title"       content="Random Tools - Asian Dramas" />
+        <meta property="og:description" content="No popup ads! Watch asian dramas for free!" />
+        <meta property="og:image"       content="favicon.ico" />
+        
+        <!-- unique imports and ads -->
+        <script src="https://kit.fontawesome.com/6b9c8a6e93.js" crossorigin="anonymous"></script>
+
+        <!-- Links and script imports -->
+        <link rel="icon" type="image/x-icon" href="../favicon.ico">
+        <link href="../libs/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <script src="../libs/bootstrap/js/bootstrap.bundle.js"></script>
+        <link rel="stylesheet" href="../styles/index-style.css">
+        <link rel="stylesheet" href="../libs/toastify-js-1.12.0/src/toastify.css">
+
+        <!-- title -->
+        <title>Random Tools - Asia Drama Watcher</title>
+    </head>
+    <body>
+
+        <iframe src="../header.html" onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
+        <div class="wrapper">
+          <nav class=" d-none">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <button class="nav-link active" id="nav-search-tab" data-bs-toggle="tab" data-bs-target="#nav-search" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Search</button>
+              <button class="nav-link" id="nav-watch-tab" data-bs-toggle="tab" data-bs-target="#nav-watch" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Watch</button>
+            </div>
+          </nav>
+          <div>
+            <p class="h2 d-inline-block " ><b>Watch</b></p>
+            <input type="text" class="form-control w-50 d-inline-block float-end"   name="query" id="search" oninput="search()" placeholder="Type something..."><br>
+          </div>
+          <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-search" role="tabpanel" aria-labelledby="nav-search-tab">
+              <br>
+              <p class="h4">Favourites</p>
+                <div class="favs film-card">
+                    
+                </div>
+              <br>
+              <p class="h4">Search :</p>
+
+              <div class="search-results film-card">
+              
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="nav-watch" role="tabpanel" aria-labelledby="nav-watch-tab">
+              <br>
+              <div class="video-player">
+                <p>^^ Search for anything :DD</p>
+              </div>
+              <div class="video-info">
+                <span><p class="video-title d-inline-block h3" style="font-weight: bold;"></p> <p class="p-2  d-inline-block h3"><i class="fas fa-star fav-button"onclick=""></i></p></span>
+                <h6 class="video-date"></h6>
+
+              </div><br>
+              <div id="item-episodes">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal -->
+        <!-- Vertically centered modal -->
+        <div class="modal fade" id="item-modal"  aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="" id="item-title">Result:</h5>
+                <div class="modal-trailer">
+
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">  
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- for ads and scripts -->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7483436228175068" crossorigin="anonymous"></script>
+        <script src="scripts/script.js" defer></script>
+        <script src="../libs/toastify-js-1.12.0/src/toastify.js"></script>
+    </body>
+</html>

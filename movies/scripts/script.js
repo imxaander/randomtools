@@ -30,7 +30,7 @@ function search(){
     wrapper.innerHTML = '<i class="fas fa-spinner spinner"></i>';
 
     
-    fetch("https://fmoviesz.to/home").then(response => response.text()).then(html => 
+    fetch("http://tinyzonetv.se/home").then(response => response.text()).then(html => 
     {
         console.log(html);
         var page = document.createElement('html');

@@ -9,7 +9,9 @@
 
 });
 */
-
+//              <iframe id="sandbox-iframe"  sandbox="allow-scripts allow-forms allow-same-origin"  width="100%" height="100%" allowfullscreen src="http://embtaku.pro/streaming.php?id=MjE3NTI3&title=Zom+100%3A+Zombie+ni+Naru+made+ni+Shitai+100+no+Koto+Episode+12&typesub=SUB" target="_blank"></iframe>
+window.alias_open = window.open;
+window.open = function(url, name, specs, replace) { }
 
 if(!("favs" in localStorage)){
     localStorage.setItem("favs", "")
@@ -113,6 +115,9 @@ function detail(id, name, img){
 }
 
 function watch(id){
+    let sframe = document.getElementById("sandbox-iframe");
+    sframe.sandbox = "allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation allow-modals";
+    alert(sframe.getAttribute("src"))
     var wrapper = document.getElementsByClassName("video-player")[0];
     wrapper.innerHTML = '<i class="fas fa-spinner spinner"></i>';
     

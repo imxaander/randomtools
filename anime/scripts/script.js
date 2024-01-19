@@ -115,9 +115,6 @@ function detail(id, name, img){
 }
 
 function watch(id){
-    let sframe = document.getElementById("sandbox-iframe");
-    sframe.sandbox = "allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation allow-modals";
-    alert(sframe.getAttribute("src"))
     var wrapper = document.getElementsByClassName("video-player")[0];
     wrapper.innerHTML = '<i class="fas fa-spinner spinner"></i>';
     

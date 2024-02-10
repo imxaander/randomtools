@@ -16,11 +16,11 @@ function search(){
 
     //set to true to default in input
     if(true){
-        site = 'https://ww8.dramacoool.co/search?type=movies&keyword='+query;
+        site = 'https://www2.dramacool.ba/search?type=movies&keyword='+query;
         console.log("may laman")
         isRecent = false;
     }else{
-        site = `https://ww8.dramacoool.co/`;
+        site = `https://www2.dramacool.ba/`;
         console.log("walang laman")
         isRecent = true;
     }

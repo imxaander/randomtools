@@ -16,11 +16,11 @@ function search(){
 
     //set to true to default in input
     if(true){
-        site = 'https://dramacool.com.pa/search?type=movies&keyword='+query;
+        site = 'https://vvv1.dramacool.sr/search?type=movies&keyword='+query;
         console.log("may laman")
         isRecent = false;
     }else{
-        site = `https://dramacool.com.pa/`;
+        site = `https://vvv1.dramacool.sr/`;
         console.log("walang laman")
         isRecent = true;
     }
@@ -31,7 +31,6 @@ function search(){
     
     fetch(site).then(response => response.text()).then(html => 
     {
-        
         var page = document.createElement('html');
         page.innerHTML = html;
     

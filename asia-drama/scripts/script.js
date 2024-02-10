@@ -16,11 +16,11 @@ function search(){
 
     //set to true to default in input
     if(true){
-        site = 'https://www2.dramacool.ba/search?type=drama&keyword='+query;
+        site = 'https://runasian.net/search?type=drama&keyword='+query;
         console.log("may laman")
         isRecent = false;
     }else{
-        site = `https://www2.dramacool.ba/`;
+        site = `https://runasian.net/`;
         console.log("walang laman")
         isRecent = true;
     }

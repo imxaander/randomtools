@@ -73,7 +73,7 @@ function detail(id, name, img){
     
     wrapper.innerHTML = '<i class="fas fa-spinner spinner"></i>';
     
-    fetch('https://dramacool.com.pa/drama-detail/'+id).then(response => response.text()).then(html =>{
+    fetch('https://runasian.net/drama-detail/'+id).then(response => response.text()).then(html =>{
         var page = document.createElement('html');
         page.innerHTML = html;
 
@@ -106,7 +106,7 @@ function watch(id){
     var wrapper = document.getElementsByClassName("video-player")[0];
     wrapper.innerHTML = '<i class="fas fa-spinner spinner"></i>';
     
-    let link = "https://dramacool.com.pa"+id;
+    let link = "https://runasian.net"+id;
     fetch(link).then(response => response.text()).then(html => {
         var page = document.createElement("html")
         page.innerHTML = html;

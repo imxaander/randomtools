@@ -16,7 +16,7 @@ function search(){
 
     //set to true to default in input
     if(true){
-        site = 'https://www2.dramacool.ba/search?type=movies&keyword='+query;
+        site = 'https://www2.dramacool.ba/search?type=drama&keyword='+query;
         console.log("may laman")
         isRecent = false;
     }else{

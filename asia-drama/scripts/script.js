@@ -16,11 +16,11 @@ function search(){
 
     //set to true to default in input
     if(true){
-        site = 'https://vvv1.dramacool.sr/search?type=movies&keyword='+query;
+        site = 'https://ww8.dramacoool.co/search?type=movies&keyword='+query;
         console.log("may laman")
         isRecent = false;
     }else{
-        site = `https://vvv1.dramacool.sr/`;
+        site = `https://ww8.dramacoool.co/`;
         console.log("walang laman")
         isRecent = true;
     }

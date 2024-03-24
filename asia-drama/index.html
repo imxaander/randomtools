@@ -1,95 +1,134 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <!-- mmeta -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Watch Asian Drama!">
-        <meta property="og:type"        content="website" />
-        <meta property="og:title"       content="Random Tools - Asian Dramas" />
-        <meta property="og:description" content="No popup ads! Watch asian dramas for free!" />
-        <meta property="og:image"       content="favicon.ico" />
-        
-        <!-- unique imports and ads -->
-        <script src="https://kit.fontawesome.com/6b9c8a6e93.js" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Watch Asian Drama</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.6.1/toastify.css" integrity="sha512-VSD3lcSci0foeRFRHWdYX4FaLvec89irh5+QAGc00j5AOdow2r5MFPhoPEYBUQdyarXwbzyJEO7Iko7+PnPuBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- imports -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script defer src="https://kit.fontawesome.com/6b9c8a6e93.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.6.1/toastify.js" integrity="sha512-MnKz2SbnWiXJ/e0lSfSzjaz9JjJXQNb2iykcZkEY2WOzgJIWVqJBFIIPidlCjak0iTH2bt2u1fHQ4pvKvBYy6Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-        <!-- Links and script imports -->
-        <link rel="icon" type="image/x-icon" href="../favicon.ico">
-        <link href="../libs/bootstrap/css/bootstrap.css" rel="stylesheet">
-        <script src="../libs/bootstrap/js/bootstrap.bundle.js"></script>
-        <link rel="stylesheet" href="../styles/index-style.css">
-        <link rel="stylesheet" href="../libs/toastify-js-1.12.0/src/toastify.css">
+    
 
-        <!-- title -->
-        <title>Random Tools - Asia Drama Watcher</title>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7483436228175068"
-     crossorigin="anonymous"></script>
-    </head>
-    <body>
+  </head>
+  <body>
+    
+    <nav class="navbar mt-0  fixed-top " id="home-navbar">
+        <div class="container-fluid ">
+          <a class="navbar-brand text-light" id="brand-title" href="">Watch Asia <i class="fas fa-globe-asia"></i></a>
+          <form class="d-flex" role="search">
+            <input id="search-input"class="form-control me-2" type="search" placeholder="Search" aria-label="Search"  oninput="search()">
+            <button class="btn text-light" type="submit"><i class="fas fa-search"></i></button>
+          </form>
+        </div>
+    </nav>
 
-        <iframe src="../header.html" onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
-        <div class="wrapper">
-          <nav class=" d-none">
-            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-              <button class="nav-link active" id="nav-search-tab" data-bs-toggle="tab" data-bs-target="#nav-search" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Search</button>
-              <button class="nav-link" id="nav-watch-tab" data-bs-toggle="tab" data-bs-target="#nav-watch" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Watch</button>
-            </div>
-          </nav>
-          <div>
-            <p class="h2 d-inline-block " ><b>Watch</b></p>
-            <input type="text" class="form-control w-50 d-inline-block float-end"   name="query" id="search" oninput="search()" placeholder="Type something..."><br>
-          </div>
-          <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-search" role="tabpanel" aria-labelledby="nav-search-tab">
-              <br>
-              <p class="h4">Favourites</p>
-                <div class="favs film-card">
-                    
+    <ul class="nav nav-tabs visually-hidden " id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button id="home-page-btn" class="nav-link active"data-bs-toggle="tab" data-bs-target="#home-tab" type="button" role="tab" aria-controls="home-tab" aria-selected="true">Home</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button id="search-page-btn" class="nav-link"data-bs-toggle="tab" data-bs-target="#search-tab" type="button" role="tab">Profile</button>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane fade show active home-tab" id="home-tab">
+            <div class="container-fluid p-0 position-relative">
+                <img class="w-100 image-fluid" id="idk-img"src="images/loading.png" alt="">
+                <div class="container-fluid p-0 position-absolute bottom-0 start-0 p-5">
+                    <b><p class="h1 b" id="idk-title">Loading...</p></b>
+                    <!-- <button class="btn bg-light btn-lg "> <i class="fas fa-play"></i> PLAY</button> -->
+                    <button class="btn bg-dark text-light btn-lg " id="idk-btn"> <i class="fas fa-info-circle"></i> MORE INFO</button>
                 </div>
-              <br>
-              <p class="h4">Search :</p>
-
-              <div class="search-results film-card">
-              
-              </div>
             </div>
-
-            <div class="tab-pane fade" id="nav-watch" role="tabpanel" aria-labelledby="nav-watch-tab">
-              <br>
-              <div class="video-player">
-                <p>^^ Search for anything :DD</p>
-              </div>
-              <div class="video-info">
-                <span><p class="video-title d-inline-block h3" style="font-weight: bold;"></p> <p class="p-2  d-inline-block h3"><i class="fas fa-star fav-button"onclick=""></i></p></span>
-                <h6 class="video-date"></h6>
-
-              </div><br>
-              <div id="item-episodes">
-              </div>
+            
+            <div class="container-fluid  movie-list text-light m-0 p-4">
+                <!-- slider wrapper -->
+                <div class="container-fluid m-0 p-0 fav-section">
+                    <p class="h3">Favourites</p>
+                    <!-- slider -->
+                    <div class="container-fluid carousels fav-section-carousel p-0 m-0  ">
+                        s
+                        
+                    </div>
+                </div>
+    
+                <div class="container-fluid m-0 p-0 popular-section">
+                    <p class="h3">Popular Drama:</p>
+                    <!-- slider -->
+                    <div class="container-fluid carousels popular-section-carousel p-0 m-0  " id="popular-section-carousel">
+                    </div>
+                </div>  
             </div>
-          </div>
         </div>
 
-        <!-- Modal -->
-        <!-- Vertically centered modal -->
-        <div class="modal fade" id="item-modal"  aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="" id="item-title">Result:</h5>
-                <div class="modal-trailer">
+        <div class="tab-pane fade search-tab" id="search-tab">
+            <br>
+            <br>
+            <div class="container-fluid text-center search-results d-flex flex-wrap justify-content-center">
 
+            </div>
+        </div>
+
+
+        <div class="modal fade modal-lg" id="detail-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+              <div class="modal-content text-light "  id="detail-modal-content" >
+                <div class="modal-header">
+                  <h1 class="modal-title h3" id="detail-modal-title">Modal title</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-body">
+                    <div id="detail-modal-info" class="">
+                      <div id="detail-modal-trailer" class="container-fluid d-flex justify-content-center h-100 mb-1">
+                        <iframe src="" frameborder="0"></iframe>
+                      </div>
+                    </div>
+                    <hr>
+                    <p class="h4">Episodes</p>
+                    <hr>
+                    <div id="detail-modal-episodes"></div>
+                </div>
               </div>
-              <div class="modal-body">  
+            </div>
+        </div>
+    </div>
+
+    <div class="video-pane position-fixed top-50 start-50 translate-middle container-fluid h-100  w-100 p-5 bg-black visually-hidden  d-flex align-items-center" id="video-pane" style="z-index: 1700;">
+        <button class="btn btn-dark btn-lg m-2 align-self-baseline" onclick="closeWatch()"><i class="fas fa-arrow-left"></i></button>
+        <div id="video-player-wrapper" class="container-fluid">
+            <div class="video-player " >
+                <!-- <iframe id="video-player-iframe" sandbox = "allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation allow-modals" width="100%" height="100%" allowfullscreen src="//pladrac.net/play.php?id=NDAyMjI3&title=Knight+Flower+%282024%29+episode+12&typesub=SUB" target="_blank"></iframe> -->
+            </div>
+            <div class="container-fluid d-flex justify-content-between">
+              <p class="h4 video-title text-light"></p>
+              <div class="">
+                <a id="watch-dl" href="" class="m-2 " target="_blank">
+                  <i class="fas fa-download watch-buttons"  href=""></i>
+                </a>
+                <i class="fas fa-star watch-buttons fav-button m-2" onclick=""  style="font-size: xx-large; color: white;"></i>
+              </div>
+            </div>
+            <div class="video-pane-episodes overflow-y-scroll ">
+
                 
-              </div>
             </div>
-          </div>
         </div>
-        <!-- for ads and scripts -->
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7483436228175068" crossorigin="anonymous"></script>
-        <script src="scripts/script.js" defer></script>
-        <script src="../libs/toastify-js-1.12.0/src/toastify.js"></script>
+    </div>
+    
+    <!-- imports end.. -->
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
     </body>
 </html>

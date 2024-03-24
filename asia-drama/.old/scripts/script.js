@@ -254,9 +254,16 @@ document.addEventListener("DOMContentLoaded", function(){
 
     
 });
+
+//updates the settings
+function prefsUpdate(){
+
+}
+
 var r = document.querySelector(':root');
 r.style.setProperty('--dark', localStorage.getItem("color"));
 
 refreshFav();
 document.getElementById("search").dispatchEvent(new Event('input'));
+
 

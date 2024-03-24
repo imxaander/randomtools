@@ -16,11 +16,11 @@ function search(){
 
     //set to true to default in input
     if(true){
-        site = 'https://dramacool.com.pa/search?type=movies&keyword='+query;
+        site = 'https://runasian.net/search?type=drama&keyword='+query;
         console.log("may laman")
         isRecent = false;
     }else{
-        site = `https://dramacool.com.pa/`;
+        site = `https://runasian.net/`;
         console.log("walang laman")
         isRecent = true;
     }
@@ -31,7 +31,6 @@ function search(){
     
     fetch(site).then(response => response.text()).then(html => 
     {
-        
         var page = document.createElement('html');
         page.innerHTML = html;
     
@@ -74,7 +73,7 @@ function detail(id, name, img){
     
     wrapper.innerHTML = '<i class="fas fa-spinner spinner"></i>';
     
-    fetch('https://dramacool.com.pa/drama-detail/'+id).then(response => response.text()).then(html =>{
+    fetch('https://runasian.net/drama-detail/'+id).then(response => response.text()).then(html =>{
         var page = document.createElement('html');
         page.innerHTML = html;
 
@@ -107,7 +106,7 @@ function watch(id){
     var wrapper = document.getElementsByClassName("video-player")[0];
     wrapper.innerHTML = '<i class="fas fa-spinner spinner"></i>';
     
-    let link = "https://dramacool.com.pa"+id;
+    let link = "https://runasian.net"+id;
     fetch(link).then(response => response.text()).then(html => {
         var page = document.createElement("html")
         page.innerHTML = html;

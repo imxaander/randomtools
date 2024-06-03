@@ -35,12 +35,12 @@ function search(){
     //set to true to default in input
     if(query){
         $("#search-page-btn").click();
-        site = 'https://runasian.net/search?type=movies&keyword='+query;
+        site = 'https://asianc.to/search?type=movies&keyword='+query;
         // console.log("may laman")
         isRecent = false;
     }else{
         $("#home-page-btn").click();
-        site = `https://runasian.net`;
+        site = `https://asianc.to`;
         // console.log("walang laman")
         isRecent = true;
     }
@@ -102,7 +102,7 @@ function detail(id, name){
     
     wrapper.innerHTML = '<i class="fas fa-spinner spinner"></i>';
     
-    fetch('https://runasian.net/drama-detail/'+id).then(response => response.text()).then(html =>{
+    fetch('https://asianc.to/drama-detail/'+id).then(response => response.text()).then(html =>{
         var page = document.createElement('html');
         page.innerHTML = html;
         /*
@@ -193,7 +193,7 @@ function watch(id){
     var wrapper = document.getElementsByClassName("video-player")[0];
     wrapper.innerHTML = '<i class="fas fa-spinner spinner"></i>';
     
-    let link = "https://runasian.net"+id;
+    let link = "https://asianc.to"+id;
     fetch(link).then(response => response.text()).then(html => {
         var page = document.createElement("html")
         page.innerHTML = html;
@@ -310,7 +310,7 @@ function toast(str, clr){
 }
 
 function showPopular(){
-    let site = 'https://runasian.net/most-popular-drama'
+    let site = 'https://asianc.to/most-popular-drama'
     var wrapper = $('.popular-section-carousel')[0];
     wrapper.innerHTML = '<i class="fas fa-spinner spinner"></i>';
     fetch(site).then(response => response.text()).then(html => 
@@ -361,7 +361,7 @@ function showPopular(){
 }
 
 function showIdk(){
-    let site = 'https://runasian.net'
+    let site = 'https://asianc.to'
     var wrapper = $('.popular-section-carousel')[0];
     wrapper.innerHTML = '<i class="fas fa-spinner spinner"></i>';
     fetch(site).then(response => response.text()).then(html =>{
@@ -382,7 +382,7 @@ function showIdk(){
 }
 
 // function searchDetails(name){
-//     let site = 'https://runasian.net/search?type=movies&keyword='+name
+//     let site = 'https://asianc.to/search?type=movies&keyword='+name
 //     fetch(site).then(response => response.text()).then(html =>{
 //         var page = document.createElement('html');
 //         page.innerHTML = html;

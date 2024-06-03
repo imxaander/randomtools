@@ -35,12 +35,12 @@ function search(){
     //set to true to default in input
     if(query){
         $("#search-page-btn").click();
-        site = 'https://dramacool.bg/search?type=movies&keyword='+query;
+        site = 'https://watchasia.to/search?type=movies&keyword='+query;
         // console.log("may laman")
         isRecent = false;
     }else{
         $("#home-page-btn").click();
-        site = `https://dramacool.bg`;
+        site = `https://watchasia.to`;
         // console.log("walang laman")
         isRecent = true;
     }
@@ -102,7 +102,7 @@ function detail(id, name){
     
     wrapper.innerHTML = '<i class="fas fa-spinner spinner"></i>';
     
-    fetch('https://dramacool.bg/drama-detail/'+id).then(response => response.text()).then(html =>{
+    fetch('https://watchasia.to/drama-detail/'+id).then(response => response.text()).then(html =>{
         var page = document.createElement('html');
         page.innerHTML = html;
         /*
@@ -193,7 +193,7 @@ function watch(id){
     var wrapper = document.getElementsByClassName("video-player")[0];
     wrapper.innerHTML = '<i class="fas fa-spinner spinner"></i>';
     
-    let link = "https://dramacool.bg"+id;
+    let link = "https://watchasia.to"+id;
     fetch(link).then(response => response.text()).then(html => {
         var page = document.createElement("html")
         page.innerHTML = html;
@@ -310,7 +310,7 @@ function toast(str, clr){
 }
 
 function showPopular(){
-    let site = 'https://dramacool.bg/most-popular-drama'
+    let site = 'https://watchasia.to/most-popular-drama'
     var wrapper = $('.popular-section-carousel')[0];
     wrapper.innerHTML = '<i class="fas fa-spinner spinner"></i>';
     fetch(site).then(response => response.text()).then(html => 
@@ -361,7 +361,7 @@ function showPopular(){
 }
 
 function showIdk(){
-    let site = 'https://dramacool.bg'
+    let site = 'https://watchasia.to'
     var wrapper = $('.popular-section-carousel')[0];
     wrapper.innerHTML = '<i class="fas fa-spinner spinner"></i>';
     fetch(site).then(response => response.text()).then(html =>{
@@ -382,7 +382,7 @@ function showIdk(){
 }
 
 // function searchDetails(name){
-//     let site = 'https://dramacool.bg/search?type=movies&keyword='+name
+//     let site = 'https://watchasia.to/search?type=movies&keyword='+name
 //     fetch(site).then(response => response.text()).then(html =>{
 //         var page = document.createElement('html');
 //         page.innerHTML = html;

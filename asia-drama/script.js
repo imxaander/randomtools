@@ -205,7 +205,16 @@ function watch(id){
         console.log(dlUrl);
         document.getElementById("watch-dl").href = "https:" + dlUrl
         // console.log(url);
-        wrapper.innerHTML = `<iframe id="video-player-iframe" sandbox = "allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation allow-modals" width="100%" height="100%" allowfullscreen src="${url}" target="_blank"></iframe>`;
+
+        let videoPlayerElement = document.createElement('iframe');
+        videoPlayerElement.id = 'video-player-iframe';
+        videoPlayerElement.width = '100%';
+        videoPlayerElement.height = '100%';
+        videoPlayerElement.allowFullscreen = true;
+        videoPlayerElement.src = url;
+        wrapper.insertAdjacentElement('afterbegin', videoPlayerElement)
+        // wrapper.innerHTML = `<iframe id="video-player-iframe" width="100%" height="100%" allowfullscreen src="${url}" target="_blank"></iframe>`;
+        videoPlayerElement.sandbox = ""
     });
     var cssLink = document.createElement("link");
     cssLink.href = "../styles/index-style.css"; 

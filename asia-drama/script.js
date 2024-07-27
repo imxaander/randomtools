@@ -1,4 +1,7 @@
 let sourceUrl = 'https://watchasia.to'
+// list : vidhide, streamwish
+let server = 'streamwish'
+
 $(document).ready(function() {
     $('.fav-section-carousel').flickity({
         // options
@@ -200,8 +203,7 @@ function watch(id){
         var title = page.querySelector("strong").innerHTML;
         document.querySelector(".video-title").innerHTML = title;
         
-    
-        var url = page.getElementsByClassName("vidhide")[0].getAttribute('data-video')
+        var url = page.getElementsByClassName(server)[0].getAttribute('data-video')
         var dlUrl = page.getElementsByClassName('download')[0].children[0].getAttribute("href")
         console.log(dlUrl);
         document.getElementById("watch-dl").href = "https:" + dlUrl

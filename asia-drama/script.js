@@ -1,4 +1,4 @@
-
+let sourceUrl = 'https://watchasia.to'
 $(document).ready(function() {
     $('.fav-section-carousel').flickity({
         // options
@@ -35,12 +35,12 @@ function search(){
     //set to true to default in input
     if(query){
         $("#search-page-btn").click();
-        site = 'https://watchasia.to/search?type=movies&keyword='+query;
+        site = sourceUrl + '/search?type=movies&keyword='+query;
         // console.log("may laman")
         isRecent = false;
     }else{
         $("#home-page-btn").click();
-        site = `https://watchasia.to`;
+        site = sourceUrl;
         // console.log("walang laman")
         isRecent = true;
     }
@@ -102,7 +102,7 @@ function detail(id, name){
     
     wrapper.innerHTML = '<i class="fas fa-spinner spinner"></i>';
     
-    fetch('https://watchasia.to/drama-detail/'+id).then(response => response.text()).then(html =>{
+    fetch(sourceUrl + '/drama-detail/'+id).then(response => response.text()).then(html =>{
         var page = document.createElement('html');
         page.innerHTML = html;
         /*
@@ -193,20 +193,22 @@ function watch(id){
     var wrapper = document.getElementsByClassName("video-player")[0];
     wrapper.innerHTML = '<i class="fas fa-spinner spinner"></i>';
     
-    let link = "https://watchasia.to"+id;
+    let link = sourceUrl +id;
     fetch(link).then(response => response.text()).then(html => {
         var page = document.createElement("html")
         page.innerHTML = html;
         var title = page.querySelector("strong").innerHTML;
         document.querySelector(".video-title").innerHTML = title;
         
-        var url = page.getElementsByClassName("watch_video watch-iframe")[0].querySelector("iframe").getAttribute("src");
+    
+        var url = page.getElementsByClassName("vidhide")[0].getAttribute('data-video')
         var dlUrl = page.getElementsByClassName('download')[0].children[0].getAttribute("href")
         console.log(dlUrl);
         document.getElementById("watch-dl").href = "https:" + dlUrl
         // console.log(url);
 
         let videoPlayerElement = document.createElement('iframe');
+        videoPlayerElement.sandbox = "allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation allow-modals"
         videoPlayerElement.id = 'video-player-iframe';
         videoPlayerElement.width = '100%';
         videoPlayerElement.height = '100%';
@@ -215,6 +217,7 @@ function watch(id){
         wrapper.insertAdjacentElement('afterbegin', videoPlayerElement)
         // wrapper.innerHTML = `<iframe id="video-player-iframe" width="100%" height="100%" allowfullscreen src="${url}" target="_blank"></iframe>`;
         videoPlayerElement.sandbox = ""
+
     });
     var cssLink = document.createElement("link");
     cssLink.href = "../styles/index-style.css"; 
@@ -319,7 +322,7 @@ function toast(str, clr){
 }
 
 function showPopular(){
-    let site = 'https://watchasia.to/most-popular-drama'
+    let site = sourceUrl + '/most-popular-drama'
     var wrapper = $('.popular-section-carousel')[0];
     wrapper.innerHTML = '<i class="fas fa-spinner spinner"></i>';
     fetch(site).then(response => response.text()).then(html => 
@@ -370,7 +373,7 @@ function showPopular(){
 }
 
 function showIdk(){
-    let site = 'https://watchasia.to'
+    let site = sourceUrl;
     var wrapper = $('.popular-section-carousel')[0];
     wrapper.innerHTML = '<i class="fas fa-spinner spinner"></i>';
     fetch(site).then(response => response.text()).then(html =>{
@@ -414,9 +417,3 @@ showIdk()
 
     
 // }, 500)
-
-fetch('https://pladrac.net/download?id=NDAzNDI0&typesub=runasian-SUB&title=Wedding Impossible (2024) Episode 1').then(response => response.text()).then(html =>{
-    var page = document.createElement('html');
-        page.innerHTML = html;
-        console.log(page);
-})

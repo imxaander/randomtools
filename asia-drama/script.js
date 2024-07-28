@@ -1,6 +1,8 @@
 let sourceUrl = 'https://watchasia.to'
 // list : vidhide, streamwish
-let server = 'streamwish'
+let serverList = ['vidhide', 'streamwish']
+let currentServer = localStorage.getItem('server')
+
 
 $(document).ready(function() {
     $('.fav-section-carousel').flickity({
@@ -17,10 +19,11 @@ myModalEl.addEventListener('hidden.bs.modal', event => {
   document.getElementById('detail-modal-trailer').innerHTML = ""
 })
 
-
 if(!("favs" in localStorage)){
     localStorage.setItem("favs", "")
-    
+}
+if(!("server" in localStorage)){
+    localStorage.setItem("server", serverList[0])
 }
 if (!String.prototype.includes) {
     String.prototype.includes = function() {
@@ -203,7 +206,7 @@ function watch(id){
         var title = page.querySelector("strong").innerHTML;
         document.querySelector(".video-title").innerHTML = title;
         
-        var url = page.getElementsByClassName(server)[0].getAttribute('data-video')
+        var url = page.getElementsByClassName(currentServer)[0].getAttribute('data-video')
         var dlUrl = page.getElementsByClassName('download')[0].children[0].getAttribute("href")
         console.log(dlUrl);
         document.getElementById("watch-dl").href = "https:" + dlUrl
@@ -394,6 +397,27 @@ function showIdk(){
         $('#idk-btn').attr("onclick", `detail('${a.getAttribute("href").slice(14)}','${img.getAttribute("title")}', '${img.getAttribute('src')}')`)
     })
 }
+function loadServerSelection(){
+    let serverSelectList = document.getElementById("server-select-list");
+    serverSelectList.innerHTML = '';
+    serverList.forEach(server=>{
+        if(server == currentServer){
+            serverSelectList.innerHTML += `
+                <li class="list-group-item active" onclick="setServer(${serverList.indexOf(server)})">${server}</li>
+            `
+        }else{
+            serverSelectList.innerHTML += `
+                <li class="list-group-item  text-light bg-dark" onclick="setServer(${serverList.indexOf(server)})">${server}</li>
+            `
+        }
+    })
+}
+
+function setServer(index){
+    localStorage.setItem('server', serverList[index])
+    currentServer = serverList[index]
+    loadServerSelection();
+}
 
 // function searchDetails(name){
 //     let site = 'https://watchasia.to/search?type=movies&keyword='+name
@@ -411,9 +435,9 @@ function showIdk(){
 //         return detailsObj
 //     })
 // }
-
 refreshFav()
 showPopular()
+loadServerSelection()
 showIdk()
 // setTimeout(()=>{
 

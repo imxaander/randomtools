@@ -1,6 +1,6 @@
 let sourceUrl = 'https://watchasia.to'
 // list : vidhide, streamwish
-let serverList = ['vidhide', 'streamwish']
+let serverList = ['vidhide', 'streamwish', '10:10pm']
 
 if(!("server" in localStorage)){
     localStorage.setItem("server", serverList[0])
@@ -221,9 +221,11 @@ function watch(id){
         videoPlayerElement.width = '100%';
         videoPlayerElement.height = '100%';
         videoPlayerElement.allowFullscreen = true;
+        videoPlayerElement.webkitallowfullscreen = true;
+        videoPlayerElement.target = "_blank";
         videoPlayerElement.src = url;
-        wrapper.insertAdjacentElement('afterbegin', videoPlayerElement)
-        // wrapper.innerHTML = `<iframe id="video-player-iframe" width="100%" height="100%" allowfullscreen src="${url}" target="_blank"></iframe>`;
+        // wrapper.insertAdjacentElement('afterbegin', videoPlayerElement)
+        wrapper.innerHTML = `<iframe id="video-player-iframe" width="100%" height="100%" allowfullscreen src="${url}" target="_blank"></iframe>`;
         videoPlayerElement.sandbox = ""
 
     });
@@ -446,3 +448,4 @@ showIdk()
 
     
 // }, 500)
+

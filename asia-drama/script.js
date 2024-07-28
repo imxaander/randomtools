@@ -1,6 +1,11 @@
 let sourceUrl = 'https://watchasia.to'
 // list : vidhide, streamwish
 let serverList = ['vidhide', 'streamwish']
+
+if(!("server" in localStorage)){
+    localStorage.setItem("server", serverList[0])
+}
+
 let currentServer = localStorage.getItem('server')
 
 
@@ -22,9 +27,7 @@ myModalEl.addEventListener('hidden.bs.modal', event => {
 if(!("favs" in localStorage)){
     localStorage.setItem("favs", "")
 }
-if(!("server" in localStorage)){
-    localStorage.setItem("server", serverList[0])
-}
+
 if (!String.prototype.includes) {
     String.prototype.includes = function() {
         'use strict';

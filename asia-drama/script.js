@@ -225,8 +225,7 @@ function watch(id){
         videoPlayerElement.target = "_blank";
         videoPlayerElement.src = url;
         // wrapper.insertAdjacentElement('afterbegin', videoPlayerElement)
-        wrapper.innerHTML = `<iframe id="video-player-iframe" width="100%" height="100%" allowfullscreen src="${url}" target="_blank"></iframe>`;
-        videoPlayerElement.sandbox = ""
+        wrapper.innerHTML = `<iframe id="video-player-iframe" width="100%" height="100%" sandbox="allow-scripts" allowfullscreen src="${url}" target="_blank"></iframe>`;
 
     });
     var cssLink = document.createElement("link");

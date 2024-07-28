@@ -216,7 +216,7 @@ function watch(id){
         // console.log(url);
 
         let videoPlayerElement = document.createElement('iframe');
-        videoPlayerElement.sandbox = "allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation allow-modals"
+
         videoPlayerElement.id = 'video-player-iframe';
         videoPlayerElement.width = '100%';
         videoPlayerElement.height = '100%';

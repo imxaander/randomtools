@@ -1,6 +1,6 @@
 let sourceUrl = 'https://watchasia.to'
 // list : vidhide, streamwish
-let serverList = ['vidhide', 'streamwish', 'asianload', "10:16 PM" + " <- Not a server!"]
+let serverList = ['vidhide', 'streamwish', 'asianload', 'standard', "10:16 PM" + " <- Not a server!"]
 
 if(!("server" in localStorage)){
     localStorage.setItem("server", serverList[0])

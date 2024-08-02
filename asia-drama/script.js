@@ -203,14 +203,15 @@ function watch(id){
     wrapper.innerHTML = '<i class="fas fa-spinner spinner"></i>';
     
     let link = sourceUrl +id;
-    alert(link);
+    
     fetch(link).then(response => response.text()).then(html => {
         var page = document.createElement("html")
         page.innerHTML = html;
         var title = page.querySelector("strong").innerHTML;
         document.querySelector(".video-title").innerHTML = title;
         
-        var url = page.getElementsByClassName(currentServer)[0].getAttribute('data-video')
+        var url = page.getElementsByClassName(currentServer)[0].getAttribute('data-video');
+alert(url);
         var dlUrl = page.getElementsByClassName('download')[0].children[0].getAttribute("href")
         console.log(dlUrl);
         document.getElementById("watch-dl").href = "https:" + dlUrl

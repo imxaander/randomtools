@@ -203,6 +203,7 @@ function watch(id){
     wrapper.innerHTML = '<i class="fas fa-spinner spinner"></i>';
     
     let link = sourceUrl +id;
+    alert(link);
     fetch(link).then(response => response.text()).then(html => {
         var page = document.createElement("html")
         page.innerHTML = html;

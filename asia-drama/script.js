@@ -24,8 +24,9 @@ myModalEl.addEventListener('hidden.bs.modal', event => {
   document.getElementById('detail-modal-trailer').innerHTML = ""
 })
 
-if(!("favs" in localStorage)){
+if(!("favsv2" in localStorage)){
     localStorage.setItem("favs", "")
+    localStorage.setItem("favsv2", "")
 }
 
 if (!String.prototype.includes) {
@@ -245,7 +246,7 @@ function fav(name, image, id){
 
     var curfav = localStorage.getItem("favs");
 
-    var tofav = `"${name}", "${image}", "${id}"`
+    var tofav = `"${name}"| "${image}"| "${id}"`
     if(curfav.includes(tofav)){
         var ret = curfav.replace(tofav, "")
         localStorage.setItem("favs", ret)
@@ -254,7 +255,7 @@ function fav(name, image, id){
         var str = localStorage.getItem("favs");
         toast("Added to favourites.", "green")
         
-        localStorage.setItem("favs", `${str}, "${name}", "${image}", "${id}", `)
+        localStorage.setItem("favs", `${str}| "${name}"| "${image}"| "${id}"| `)
     }
     
     refreshFav();
@@ -262,11 +263,12 @@ function fav(name, image, id){
    //console.log(name + " " + image)
 }
 
+var favs = localStorage.getItem("favs").split("| ");
 function refreshFav(){
     var wrapper = document.querySelector(".fav-section-carousel");
     wrapper.innerHTML = '';
 
-    var favs = localStorage.getItem("favs").split(", ");
+
     favs = favs.filter(item => item);
     if(favs.length == 0){wrapper.innerHTML = 'No favourites.';}
     for(i = 0; i < favs.length; i+=3){

@@ -1,4 +1,4 @@
-let sourceUrl = 'https://watchasia.to'
+let sourceUrl = 'https://asianc.sh'
 // list : vidhide, streamwish
 let serverList = ['vidhide', 'streamwish', 'asianload', 'standard', "10:16 PM" + " <- Not a server!"]
 
